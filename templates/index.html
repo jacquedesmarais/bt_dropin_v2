@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='UTF-8'>
+    <title>BT Integration</title>
+     <link rel='stylesheet' type='text/css' href='static/css/styles.css' media='screen'>
+    <link rel="icon" href="https://pbs.twimg.com/profile_images/766281825278844929/qtk4LXKS.jpg">
+  </head>
+
+  <body>
+    <!--Begin Body-->
+
+
+
+    <div id="main_wrapper">
+        <div id="main_container">
+          <div id="title">Braintree Payments</div>
+          <!-- You're Ready For Integration Training! -->
+          <div id='form_container'>
+            <!-- <img src='https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif' id='image_cat'> -->
+
+            <!-- Integrations will go here! -->
+              <form id="checkout" method="post" action="/checkout">
+                <div id="payment-form"></div>
+                <input class="input_fields" type="text" name="first_name" placeholder="First Name" required>
+                <input class="input_fields" type="email" name="email" placeholder="Email" required>
+                <input class="input_fields" type="number" name="amount" placeholder="Amount" required><br>
+                <input type="submit" value="Pay">
+              </form>
+
+
+          </div>
+        </div>
+    </div>
+
+
+
+  </body>
+  <script src="https://js.braintreegateway.com/js/braintree-2.32.1.min.js"></script>
+  <script>
+  braintree.setup("{{client_token}}", "dropin", {
+    container: "payment-form"
+  });
+  </script>
+
+</html>
